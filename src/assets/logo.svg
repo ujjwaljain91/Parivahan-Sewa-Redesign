@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" fill="none">
+  <!-- National Emblem of India (Ashok Stambh Vector) -->
+  <g transform="translate(4, 4) scale(0.9)">
+    <!-- Base Platform -->
+    <rect x="12" y="52" width="36" height="4" rx="1" fill="#1E4567"/>
+    <rect x="8" y="56" width="44" height="3" rx="1" fill="#F28C28"/>
+    <!-- Ashoka Chakra Base -->
+    <circle cx="30" cy="46" r="6" stroke="#00487F" stroke-width="1.5" fill="#FFFFFF"/>
+    <line x1="30" y1="40" x2="30" y2="52" stroke="#00487F" stroke-width="0.8"/>
+    <line x1="24" y1="46" x2="36" y2="46" stroke="#00487F" stroke-width="0.8"/>
+    <line x1="25.5" y1="41.5" x2="34.5" y2="50.5" stroke="#00487F" stroke-width="0.8"/>
+    <line x1="34.5" y1="41.5" x2="25.5" y2="50.5" stroke="#00487F" stroke-width="0.8"/>
+    <!-- Bull and Horse accents -->
+    <path d="M12 47 Q16 45 18 48" stroke="#1E4567" stroke-width="1.2" fill="none"/>
+    <path d="M48 47 Q44 45 42 48" stroke="#1E4567" stroke-width="1.2" fill="none"/>
+    <!-- Central Lion -->
+    <path d="M26 12 C26 7, 34 7, 34 12 C36 14, 38 18, 38 24 C38 32, 35 38, 30 38 C25 38, 22 32, 22 24 C22 18, 24 14, 26 12 Z" fill="#1E4567"/>
+    <path d="M28 14 C28 10, 32 10, 32 14 C33 18, 33 22, 30 22 C27 22, 27 18, 28 14 Z" fill="#F28C28"/>
+    <!-- Left Lion Profile -->
+    <path d="M16 16 C14 12, 19 8, 23 11 C25 15, 24 24, 20 28 C17 24, 15 20, 16 16 Z" fill="#00487F"/>
+    <!-- Right Lion Profile -->
+    <path d="M44 16 C46 12, 41 8, 37 11 C35 15, 36 24, 40 28 C43 24, 45 20, 44 16 Z" fill="#00487F"/>
+    <!-- Crown detail -->
+    <circle cx="30" cy="5" r="2" fill="#F28C28"/>
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="64" y1="8" x2="64" y2="56" stroke="#D1D5DB" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Typography: Parivahan Sewa -->
+  <g transform="translate(74, 0)">
+    <!-- Hindi Brand Name -->
+    <text x="0" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1E4567" letter-spacing="0.5">
+      परिवहन सेवा
+    </text>
+    <!-- English Brand Name -->
+    <text x="0" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" fill="#00487F" letter-spacing="0.8">
+      PARIVAHAN SEWA
+    </text>
+    <!-- Subtitle Ministry of Road Transport and Highways -->
+    <text x="0" y="54" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="600" fill="#6B7280" letter-spacing="0.2">
+      MINISTRY OF ROAD TRANSPORT &amp; HIGHWAYS • GOVT. OF INDIA
+    </text>
+  </g>
+</svg>
