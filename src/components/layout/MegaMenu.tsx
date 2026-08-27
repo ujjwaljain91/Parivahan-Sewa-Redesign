@@ -1,5 +1,5 @@
 import React from 'react';
-import { CreditCard, Car, Truck, FileCheck, ShieldCheck, Sparkles, ArrowRight, Trash2 } from 'lucide-react';
+import { CreditCard, Car, FileCheck, Briefcase, ArrowRight, ShieldCheck, ExternalLink, Sparkles } from 'lucide-react';
 import { Language } from '../../types';
 
 export interface MegaMenuProps {
@@ -32,138 +32,169 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose, onNavigate,
             <ul className="gov-megamenu-list">
               <li className="gov-megamenu-item">
                 <a href="#/services/renew-driving-licence" onClick={(e) => { e.preventDefault(); handleLinkClick('/services/renew-driving-licence'); }}>
-                  <strong>{isHi ? 'लाइसेंस का नवीनीकरण' : 'Renew Driving Licence'}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? 'समाप्त हो रहे लाइसेंस हेतु ऑनलाइन आवेदन' : 'Faceless contactless renewal process'}</span>
+                  <strong>{isHi ? 'लाइसेंस नवीनीकरण' : 'Renew Licence'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? 'ऑनलाइन संपर्क रहित आरटीओ नवीनीकरण' : 'Faceless contactless renewal'}</span>
                 </a>
               </li>
               <li className="gov-megamenu-item">
                 <a href="#/services/learners-licence" onClick={(e) => { e.preventDefault(); handleLinkClick('/services/learners-licence'); }}>
-                  <strong>{isHi ? "लर्नर (शिक्षार्थी) लाइसेंस" : "Learner's Licence (LL)"}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? 'घर बैठे ऑनलाइन थ्योरी टेस्ट' : 'Online proctored road safety test'}</span>
-                </a>
-              </li>
-              <li className="gov-megamenu-item">
-                <a href="#/services/permanent-driving-licence" onClick={(e) => { e.preventDefault(); handleLinkClick('/services/permanent-driving-licence'); }}>
-                  <strong>{isHi ? 'स्थायी ड्राइविंग लाइसेंस' : 'Permanent Driving Licence'}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? 'आरटीओ टेस्ट ट्रैक स्लॉट बुकिंग' : 'Book practical driving track test'}</span>
+                  <strong>{isHi ? 'शिक्षार्थी (लर्नर) लाइसेंस' : 'Learner Licence'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? 'घर बैठे ऑनलाइन थ्योरी टेस्ट' : 'Online proctored theory test'}</span>
                 </a>
               </li>
               <li className="gov-megamenu-item">
                 <a href="#/services/duplicate-driving-licence" onClick={(e) => { e.preventDefault(); handleLinkClick('/services/duplicate-driving-licence'); }}>
-                  <strong>{isHi ? 'डुप्लीकेट लाइसेंस' : 'Duplicate Driving Licence'}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? 'खोए या क्षतिग्रस्त कार्ड हेतु' : 'Replace lost or damaged DL'}</span>
+                  <strong>{isHi ? 'डुप्लीकेट लाइसेंस' : 'Duplicate Licence'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? 'खोए या क्षतिग्रस्त कार्ड हेतु' : 'Replace lost / damaged card'}</span>
                 </a>
               </li>
               <li className="gov-megamenu-item">
-                <a href="#/services/international-driving-permit" onClick={(e) => { e.preventDefault(); handleLinkClick('/services/international-driving-permit'); }}>
-                  <strong>{isHi ? 'अंतर्राष्ट्रीय परमिट (IDP)' : 'International Driving Permit'}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? '150+ देशों में वैध ड्राइविंग परमिट' : 'Valid across 150+ countries'}</span>
+                <a href="#/services/permanent-driving-licence" onClick={(e) => { e.preventDefault(); handleLinkClick('/services/permanent-driving-licence'); }}>
+                  <strong>{isHi ? 'स्थायी लाइसेंस / वर्ग जोड़ें' : 'Permanent Licence / Add Class'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? 'आरटीओ ड्राइविंग टेस्ट ट्रैक स्लॉट' : 'Book practical driving slot'}</span>
+                </a>
+              </li>
+              <li className="gov-megamenu-item" style={{ marginTop: '4px', borderTop: '1px solid var(--color-border-light)', paddingTop: '6px' }}>
+                <a href="#/services" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }} style={{ color: 'var(--color-brand-primary)', fontWeight: 700, fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <span>{isHi ? 'सभी ड्राइविंग लाइसेंस सेवाएं →' : 'View all Driving Licence services →'}</span>
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Pillar 2: Vehicle Registration */}
+          {/* Pillar 2: Vehicle */}
           <div>
             <div className="gov-megamenu-column-title">
               <Car size={18} color="var(--color-brand-primary)" />
-              <span>{isHi ? 'वाहन पंजीकरण' : 'Vehicle Registration'}</span>
+              <span>{isHi ? 'वाहन सेवाएं' : 'Vehicle Services'}</span>
             </div>
             <ul className="gov-megamenu-list">
               <li className="gov-megamenu-item">
                 <a href="#/services/transfer-vehicle-ownership" onClick={(e) => { e.preventDefault(); handleLinkClick('/services/transfer-vehicle-ownership'); }}>
-                  <strong>{isHi ? 'स्वामित्व हस्तांतरण' : 'Transfer Vehicle Ownership'}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? 'क्रेता-विक्रेता ओटीपी द्वारा आरसी ट्रांसफर' : 'Aadhaar verified buyer-seller transfer'}</span>
+                  <strong>{isHi ? 'स्वामित्व हस्तांतरण' : 'Ownership Transfer'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? 'क्रेता-विक्रेता ओटीपी द्वारा आरसी ट्रांसफर' : 'Buyer-seller OTP transfer'}</span>
                 </a>
               </li>
               <li className="gov-megamenu-item">
                 <a href="#/services/renewal-of-rc" onClick={(e) => { e.preventDefault(); handleLinkClick('/services/renewal-of-rc'); }}>
-                  <strong>{isHi ? 'आरसी नवीनीकरण (15+ वर्ष)' : 'Renewal of Registration (RC)'}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? 'निजी वाहनों की 5-वर्षीय वैधता वृद्धि' : '5-year extension upon fitness test'}</span>
+                  <strong>{isHi ? 'आरसी नवीनीकरण (15+ वर्ष)' : 'RC Renewal'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? '5-वर्षीय फिटनेस विस्तार' : '5-year extension upon fitness'}</span>
                 </a>
               </li>
               <li className="gov-megamenu-item">
                 <a href="#/services/duplicate-rc" onClick={(e) => { e.preventDefault(); handleLinkClick('/services/duplicate-rc'); }}>
-                  <strong>{isHi ? 'डुप्लीकेट आरसी' : 'Duplicate RC Smart Card'}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? 'खोए हुए पंजीकरण प्रमाण पत्र हेतु' : 'Speed post delivery to address'}</span>
-                </a>
-              </li>
-              <li className="gov-megamenu-item">
-                <a href="#/services/no-objection-certificate" onClick={(e) => { e.preventDefault(); handleLinkClick('/services/no-objection-certificate'); }}>
-                  <strong>{isHi ? 'अनापत्ति प्रमाण पत्र (NOC)' : 'No Objection Certificate (NOC)'}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? 'अन्य राज्य/आरटीओ स्थानांतरण हेतु' : 'Form 28 inter-state clearance'}</span>
+                  <strong>{isHi ? 'डुप्लीकेट आरसी' : 'Duplicate RC'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? 'खोए पंजीकरण प्रमाण पत्र हेतु' : 'Replacement smart card'}</span>
                 </a>
               </li>
               <li className="gov-megamenu-item">
                 <a href="#/know-your-vehicle" onClick={(e) => { e.preventDefault(); handleLinkClick('/know-your-vehicle'); }}>
-                  <strong>{isHi ? 'वाहन विवरण जानें' : 'Know Your Vehicle'}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? 'आरसी, बीमा, पीयूसी और फिटनेस' : 'Instant vehicle specs and validity lookup'}</span>
+                  <strong>{isHi ? 'वाहन विवरण (RC Status)' : 'Vehicle Details'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? 'आरसी, बीमा, पीयूसी और फिटनेस' : 'Instant vehicle specs & status'}</span>
+                </a>
+              </li>
+              <li className="gov-megamenu-item" style={{ marginTop: '4px', borderTop: '1px solid var(--color-border-light)', paddingTop: '6px' }}>
+                <a href="#/services" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }} style={{ color: 'var(--color-brand-primary)', fontWeight: 700, fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <span>{isHi ? 'सभी वाहन सेवाएं →' : 'View all Vehicle services →'}</span>
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Pillar 3: Compliance & Permits */}
+          {/* Pillar 3: Compliance & Payments */}
           <div>
             <div className="gov-megamenu-column-title">
               <FileCheck size={18} color="var(--color-brand-primary)" />
-              <span>{isHi ? 'अनुपालन एवं परमिट' : 'Compliance & Permits'}</span>
+              <span>{isHi ? 'अनुपालन एवं कर' : 'Compliance & Tax'}</span>
             </div>
             <ul className="gov-megamenu-list">
               <li className="gov-megamenu-item">
                 <a href="#/echallan" onClick={(e) => { e.preventDefault(); handleLinkClick('/echallan'); }}>
-                  <strong>{isHi ? 'ई-चालान भुगतान' : 'eChallan Search & Pay'}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? 'यातायात चालान देखें व रसीद पाएं' : 'Check pending fines with photo proof'}</span>
+                  <strong>{isHi ? 'ई-चालान भुगतान' : 'eChallan'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? 'यातायात जुर्माना देखें व ऑनलाइन भरें' : 'Search & clear traffic fines'}</span>
                 </a>
               </li>
               <li className="gov-megamenu-item">
                 <a href="#/services/puc-certificate" onClick={(e) => { e.preventDefault(); handleLinkClick('/services/puc-certificate'); }}>
-                  <strong>{isHi ? 'प्रदूषण प्रमाण पत्र (PUCC)' : 'PUC Certificate & Status'}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? 'राष्ट्रीय पीयूसीसी रिकॉर्ड जांचें' : 'Central emission compliance check'}</span>
+                  <strong>{isHi ? 'प्रदूषण प्रमाण पत्र (PUCC)' : 'PUCC'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? 'उत्सर्जन रिकॉर्ड व केंद्र जांचें' : 'Emission records & testing'}</span>
                 </a>
               </li>
               <li className="gov-megamenu-item">
-                <a href="#/services/national-permit" onClick={(e) => { e.preventDefault(); handleLinkClick('/services/national-permit'); }}>
-                  <strong>{isHi ? 'राष्ट्रीय परमिट (Goods Permit)' : 'National Permit Authorization'}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? 'अखिल भारतीय वाणिज्यिक संचालन' : 'All-India goods carrier authorization'}</span>
+                <a href="#/services/vehicle-fitness-testing" onClick={(e) => { e.preventDefault(); handleLinkClick('/services/vehicle-fitness-testing'); }}>
+                  <strong>{isHi ? 'वाहन फिटनेस (ATS)' : 'Vehicle Fitness'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? 'स्वचालित परीक्षण स्टेशन स्लॉट' : 'ATS slot booking & renewal'}</span>
                 </a>
               </li>
               <li className="gov-megamenu-item">
-                <a href="#/track" onClick={(e) => { e.preventDefault(); handleLinkClick('/track'); }}>
-                  <strong>{isHi ? 'आवेदन स्थिति ट्रैक करें' : 'Track Application Status'}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? 'वास्तविक समय स्टेज ट्रैकर' : 'Live multi-stage progress tracker'}</span>
+                <a href="#/services/checkpost-tax" onClick={(e) => { e.preventDefault(); handleLinkClick('/services/checkpost-tax'); }}>
+                  <strong>{isHi ? 'चेकपोस्ट सीमा कर' : 'Checkpost Tax'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? 'अंतर-राज्यीय सीमा कर भुगतान' : 'Border entry tax clearance'}</span>
+                </a>
+              </li>
+              <li className="gov-megamenu-item" style={{ marginTop: '4px', borderTop: '1px solid var(--color-border-light)', paddingTop: '6px' }}>
+                <a href="#/services" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }} style={{ color: 'var(--color-brand-primary)', fontWeight: 700, fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <span>{isHi ? 'सभी अनुपालन सेवाएं →' : 'View all Compliance services →'}</span>
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Pillar 4: Citizen Initiatives & Scrappage */}
+          {/* Pillar 4: Business & Industry */}
           <div style={{ backgroundColor: 'var(--color-brand-subtle)', padding: 'var(--space-16)', borderRadius: 'var(--radius-md)' }}>
             <div className="gov-megamenu-column-title" style={{ borderBottomColor: 'var(--color-brand-primary)' }}>
-              <Sparkles size={18} color="var(--color-accent-saffron)" />
-              <span>{isHi ? 'विशेष नागरिक सेवाएं' : 'Key Citizen Services'}</span>
+              <Briefcase size={18} color="var(--color-brand-primary)" />
+              <span>{isHi ? 'व्यवसाय एवं उद्योग' : 'Business & Industry'}</span>
             </div>
             <ul className="gov-megamenu-list">
               <li className="gov-megamenu-item">
-                <a href="#/vehicle-scrapping" onClick={(e) => { e.preventDefault(); handleLinkClick('/vehicle-scrapping'); }}>
-                  <strong>{isHi ? 'वाहन स्क्रैपेज नीति (RVSF)' : 'Vehicle Scrapping Portal'}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? '25% तक रोड टैक्स छूट पाएं' : 'Get COD for road tax concession'}</span>
+                <a href="#/business/dealer-authorization-certificate" onClick={(e) => { e.preventDefault(); handleLinkClick('/business/dealer-authorization-certificate'); }}>
+                  <strong>{isHi ? 'डीलर प्राधिकरण (DAC)' : 'Dealer Authorization'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? 'डीलर पंजीकरण एवं फॉर्म 20' : 'Accreditation & DPR clearance'}</span>
                 </a>
               </li>
               <li className="gov-megamenu-item">
-                <a href="#/services/fancy-number-booking" onClick={(e) => { e.preventDefault(); handleLinkClick('/services/fancy-number-booking'); }}>
-                  <strong>{isHi ? 'फैंसी / वीआईपी नंबर नीलामी' : 'Fancy Number e-Auction'}</strong>
-                  <span className="gov-megamenu-item-desc">{isHi ? 'पसंदीदा नंबर हेतु ऑनलाइन बोली' : 'Bid for special registration numbers'}</span>
+                <a href="#/business/homologation" onClick={(e) => { e.preventDefault(); handleLinkClick('/business/homologation'); }}>
+                  <strong>{isHi ? 'होमोलोगेशन' : 'Homologation'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? 'ओईएम वाहन टाइप अप्रूवल' : 'OEM Type Approval & CMVR'}</span>
                 </a>
               </li>
               <li className="gov-megamenu-item">
-                <a href="#/services" onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }} style={{ color: 'var(--color-brand-primary)', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  <span>{isHi ? 'सभी 40+ सेवाएं देखें' : 'View All 40+ Services'}</span>
-                  <ArrowRight size={14} />
+                <a href="#/business/vltd-maker" onClick={(e) => { e.preventDefault(); handleLinkClick('/business/vltd-maker'); }}>
+                  <strong>{isHi ? 'वीएलटीडी निर्माता (VLTD)' : 'VLTD Maker'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? 'AIS-140 ट्रैकिंग डिवाइस मैपिंग' : 'AIS-140 location device portal'}</span>
+                </a>
+              </li>
+              <li className="gov-megamenu-item">
+                <a href="#/business/sld-maker" onClick={(e) => { e.preventDefault(); handleLinkClick('/business/sld-maker'); }}>
+                  <strong>{isHi ? 'गति नियंत्रक (SLD)' : 'SLD Maker'}</strong>
+                  <span className="gov-megamenu-item-desc">{isHi ? 'स्पीड गवर्नर मॉडल अनुमोदन' : 'Speed limiter validation'}</span>
+                </a>
+              </li>
+              <li className="gov-megamenu-item" style={{ marginTop: '4px', borderTop: '1px solid #D0E2F5', paddingTop: '6px' }}>
+                <a href="#/business" onClick={(e) => { e.preventDefault(); handleLinkClick('/business'); }} style={{ color: 'var(--color-brand-primary)', fontWeight: 700, fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <span>{isHi ? 'सभी व्यवसाय सेवाएं →' : 'View all Business services →'}</span>
                 </a>
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* Global Footer Ribbon */}
+        <div style={{ marginTop: 'var(--space-20)', paddingTop: 'var(--space-16)', borderTop: '1px solid var(--color-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--color-text-secondary)' }}>
+            <Sparkles size={16} color="var(--color-accent-saffron)" />
+            <span>{isHi ? 'सभी 22 आधिकारिक डिजिटल सेवाएं सत्यापित एवं क्रियाशील हैं' : 'All 22 verified official transport capabilities active across India'}</span>
+          </div>
+
+          <a
+            href="#/services"
+            onClick={(e) => { e.preventDefault(); handleLinkClick('/services'); }}
+            className="gov-btn gov-btn-primary gov-btn-sm"
+            style={{ fontWeight: 700 }}
+          >
+            <span>{isHi ? 'सभी 22 सेवाएं देखें (Services Hub)' : 'View all 22 Services →'}</span>
+          </a>
         </div>
       </div>
     </div>

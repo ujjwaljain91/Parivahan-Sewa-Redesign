@@ -27,7 +27,7 @@ export interface FeeItem {
 
 export interface ServiceItem {
   id: string;
-  category: 'driving-licence' | 'vehicle' | 'permits' | 'compliance' | 'other' | 'business';
+  category: 'driving-licence' | 'vehicle' | 'permits' | 'compliance' | 'other' | 'business' | 'national-register' | 'special';
   categoryLabel: string;
   categoryLabelHi: string;
   title: string;

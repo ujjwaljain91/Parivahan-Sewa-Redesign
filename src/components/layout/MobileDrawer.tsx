@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  X, User, LogIn, ChevronRight, CreditCard, Car,
+  X, User, LogIn, ChevronRight, ChevronDown, CreditCard, Car,
   AlertTriangle, ShieldCheck, HelpCircle, FileText,
-  TrendingUp, Search, ExternalLink, Globe
+  TrendingUp, Search, ExternalLink, Globe, Briefcase, Truck, Sparkles, Building
 } from 'lucide-react';
 import { Language, UserRole } from '../../types';
 import { translations } from '../../data/translations';
+import { masterOnlineServicesInventory } from '../../data/featureRegistry';
 import { BrandLogo } from '../common/BrandLogo';
 import { Button } from '../ui/Button';
 
@@ -28,14 +29,32 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
   userRole,
   onSignOut = () => {}
 }) => {
+  const [expandedSection, setExpandedSection] = useState<string | null>('services');
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+
   if (!isOpen) return null;
 
   const t = translations[language];
+  const isHi = language === 'hi';
 
   const handleLink = (path: string) => {
     onNavigate(path);
     onClose();
   };
+
+  const toggleCategory = (cat: string) => {
+    setExpandedCategory((prev) => (prev === cat ? null : cat));
+  };
+
+  // Group services by category for the accordion
+  const dlServices = masterOnlineServicesInventory.filter((s) => s.category === 'Driving Licence');
+  const vehicleServices = masterOnlineServicesInventory.filter((s) => s.category === 'Vehicle');
+  const permitServices = masterOnlineServicesInventory.filter((s) => s.category === 'Permits & Transport');
+  const complianceServices = masterOnlineServicesInventory.filter((s) => s.category === 'Compliance & Payments');
+  const businessServices = masterOnlineServicesInventory.filter((s) => s.category === 'Business & Industry');
+  const specialServices = masterOnlineServicesInventory.filter(
+    (s) => s.category === 'Registration & Special Services' || s.category === 'National Register'
+  );
 
   return (
     <div
@@ -52,8 +71,8 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
     >
       <div
         style={{
-          width: '85%',
-          maxWidth: '360px',
+          width: '88%',
+          maxWidth: '380px',
           height: '100%',
           backgroundColor: 'var(--color-bg-surface)',
           display: 'flex',
@@ -76,7 +95,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
           <BrandLogo variant="compact" />
           <button
             onClick={onClose}
-            aria-label="Close navigation"
+            aria-label="Close navigation drawer"
             style={{
               padding: '8px',
               borderRadius: 'var(--radius-sm)',
@@ -107,31 +126,280 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
             }}
           >
             <Search size={16} />
-            <span>{language === 'hi' ? 'सेवा खोजें...' : 'Search for a service...'}</span>
+            <span>{isHi ? 'सेवा या कार्य खोजें...' : 'Search for a service...'}</span>
           </button>
         </div>
 
-        {/* Nav Links */}
+        {/* Nav Links / Accordion */}
         <div style={{ flex: 1, overflowY: 'auto', padding: 'var(--space-16)' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <button
-              onClick={() => handleLink('/services')}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '12px 16px',
-                borderRadius: 'var(--radius-md)',
-                fontWeight: 600,
-                color: 'var(--color-brand-dark)',
-                fontSize: '15px',
-                textAlign: 'left'
-              }}
-            >
-              <span>{t.navServices}</span>
-              <ChevronRight size={18} color="var(--color-text-muted)" />
-            </button>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            {/* Services Accordion Header */}
+            <div>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '12px 16px',
+                  borderRadius: 'var(--radius-md)',
+                  fontWeight: 700,
+                  color: 'var(--color-brand-primary)',
+                  fontSize: '15px',
+                  backgroundColor: 'var(--color-brand-subtle)',
+                  cursor: 'pointer'
+                }}
+                onClick={() => setExpandedSection((prev) => (prev === 'services' ? null : 'services'))}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Sparkles size={18} />
+                  <span>{t.navServices} ({masterOnlineServicesInventory.length})</span>
+                </div>
+                {expandedSection === 'services' ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
+              </div>
 
+              {expandedSection === 'services' && (
+                <div style={{ paddingLeft: '8px', marginTop: '6px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  {/* Category 1: Driving Licence */}
+                  <div>
+                    <div
+                      onClick={() => toggleCategory('dl')}
+                      style={{
+                        padding: '10px 12px',
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        color: 'var(--color-brand-dark)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        cursor: 'pointer',
+                        borderRadius: 'var(--radius-sm)'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <CreditCard size={15} color="var(--color-brand-primary)" />
+                        <span>Driving Licence</span>
+                      </div>
+                      <ChevronDown size={14} style={{ transform: expandedCategory === 'dl' ? 'rotate(180deg)' : 'none' }} />
+                    </div>
+                    {expandedCategory === 'dl' && (
+                      <div style={{ paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                        {dlServices.map((s) => (
+                          <button
+                            key={s.id}
+                            onClick={() => handleLink(s.route)}
+                            style={{ textAlign: 'left', padding: '8px 8px', fontSize: '13px', color: 'var(--color-text-secondary)', borderRadius: '4px' }}
+                          >
+                            {isHi ? s.nameHi : s.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Category 2: Vehicle */}
+                  <div>
+                    <div
+                      onClick={() => toggleCategory('veh')}
+                      style={{
+                        padding: '10px 12px',
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        color: 'var(--color-brand-dark)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        cursor: 'pointer',
+                        borderRadius: 'var(--radius-sm)'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <Car size={15} color="var(--color-brand-primary)" />
+                        <span>Vehicle Services</span>
+                      </div>
+                      <ChevronDown size={14} style={{ transform: expandedCategory === 'veh' ? 'rotate(180deg)' : 'none' }} />
+                    </div>
+                    {expandedCategory === 'veh' && (
+                      <div style={{ paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                        {vehicleServices.map((s) => (
+                          <button
+                            key={s.id}
+                            onClick={() => handleLink(s.route)}
+                            style={{ textAlign: 'left', padding: '8px 8px', fontSize: '13px', color: 'var(--color-text-secondary)', borderRadius: '4px' }}
+                          >
+                            {isHi ? s.nameHi : s.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Category 3: Permits & Transport */}
+                  <div>
+                    <div
+                      onClick={() => toggleCategory('perm')}
+                      style={{
+                        padding: '10px 12px',
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        color: 'var(--color-brand-dark)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        cursor: 'pointer',
+                        borderRadius: 'var(--radius-sm)'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <Truck size={15} color="var(--color-brand-primary)" />
+                        <span>Permits & Transport</span>
+                      </div>
+                      <ChevronDown size={14} style={{ transform: expandedCategory === 'perm' ? 'rotate(180deg)' : 'none' }} />
+                    </div>
+                    {expandedCategory === 'perm' && (
+                      <div style={{ paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                        {permitServices.map((s) => (
+                          <button
+                            key={s.id}
+                            onClick={() => handleLink(s.route)}
+                            style={{ textAlign: 'left', padding: '8px 8px', fontSize: '13px', color: 'var(--color-text-secondary)', borderRadius: '4px' }}
+                          >
+                            {isHi ? s.nameHi : s.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Category 4: Compliance & Payments */}
+                  <div>
+                    <div
+                      onClick={() => toggleCategory('comp')}
+                      style={{
+                        padding: '10px 12px',
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        color: 'var(--color-brand-dark)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        cursor: 'pointer',
+                        borderRadius: 'var(--radius-sm)'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <ShieldCheck size={15} color="var(--color-brand-primary)" />
+                        <span>Compliance & Payments</span>
+                      </div>
+                      <ChevronDown size={14} style={{ transform: expandedCategory === 'comp' ? 'rotate(180deg)' : 'none' }} />
+                    </div>
+                    {expandedCategory === 'comp' && (
+                      <div style={{ paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                        {complianceServices.map((s) => (
+                          <button
+                            key={s.id}
+                            onClick={() => handleLink(s.route)}
+                            style={{ textAlign: 'left', padding: '8px 8px', fontSize: '13px', color: 'var(--color-text-secondary)', borderRadius: '4px' }}
+                          >
+                            {isHi ? s.nameHi : s.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Category 5: Business & Industry */}
+                  <div>
+                    <div
+                      onClick={() => toggleCategory('biz')}
+                      style={{
+                        padding: '10px 12px',
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        color: 'var(--color-brand-dark)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        cursor: 'pointer',
+                        borderRadius: 'var(--radius-sm)'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <Briefcase size={15} color="var(--color-brand-primary)" />
+                        <span>Business & Industry</span>
+                      </div>
+                      <ChevronDown size={14} style={{ transform: expandedCategory === 'biz' ? 'rotate(180deg)' : 'none' }} />
+                    </div>
+                    {expandedCategory === 'biz' && (
+                      <div style={{ paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                        {businessServices.map((s) => (
+                          <button
+                            key={s.id}
+                            onClick={() => handleLink(s.route)}
+                            style={{ textAlign: 'left', padding: '8px 8px', fontSize: '13px', color: 'var(--color-text-secondary)', borderRadius: '4px' }}
+                          >
+                            {isHi ? s.nameHi : s.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Category 6: Special & National Register */}
+                  <div>
+                    <div
+                      onClick={() => toggleCategory('spec')}
+                      style={{
+                        padding: '10px 12px',
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        color: 'var(--color-brand-dark)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        cursor: 'pointer',
+                        borderRadius: 'var(--radius-sm)'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <Building size={15} color="var(--color-brand-primary)" />
+                        <span>Special & National Register</span>
+                      </div>
+                      <ChevronDown size={14} style={{ transform: expandedCategory === 'spec' ? 'rotate(180deg)' : 'none' }} />
+                    </div>
+                    {expandedCategory === 'spec' && (
+                      <div style={{ paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                        {specialServices.map((s) => (
+                          <button
+                            key={s.id}
+                            onClick={() => handleLink(s.route)}
+                            style={{ textAlign: 'left', padding: '8px 8px', fontSize: '13px', color: 'var(--color-text-secondary)', borderRadius: '4px' }}
+                          >
+                            {isHi ? s.nameHi : s.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* All Services Hub Link */}
+                  <button
+                    onClick={() => handleLink('/services')}
+                    style={{
+                      marginTop: '4px',
+                      padding: '8px 12px',
+                      fontSize: '13px',
+                      fontWeight: 700,
+                      color: 'var(--color-brand-primary)',
+                      textAlign: 'left'
+                    }}
+                  >
+                    {isHi ? '→ सभी 22 ऑनलाइन सेवाएं खोलें' : '→ View All 22 Online Services Hub'}
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Other Main Navigation Links */}
             <button
               onClick={() => handleLink('/track')}
               style={{

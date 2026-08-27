@@ -13,6 +13,7 @@ import { Modal } from '../components/ui/Modal';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 
 export interface BusinessPortalPageProps {
+  subSlug?: string;
   onNavigate: (path: string) => void;
   language: Language;
 }
@@ -31,11 +32,34 @@ type ModalType =
   | 'rvsf-registration'
   | null;
 
-export const BusinessPortalPage: React.FC<BusinessPortalPageProps> = ({ onNavigate, language }) => {
+export const BusinessPortalPage: React.FC<BusinessPortalPageProps> = ({ subSlug, onNavigate, language }) => {
   const isHi = language === 'hi';
   const [activeCategory, setActiveCategory] = useState<'dealer' | 'oem' | 'testing' | 'scrapping'>('dealer');
   const [activeModal, setActiveModal] = useState<ModalType>(null);
   const [submittedResult, setSubmittedResult] = useState<any | null>(null);
+
+  React.useEffect(() => {
+    if (!subSlug) return;
+    if (subSlug === 'dealer-authorization-certificate') {
+      setActiveCategory('dealer');
+      setActiveModal('dealer-auth');
+    } else if (subSlug === 'trade-certificate') {
+      setActiveCategory('dealer');
+      setActiveModal('trade-certs');
+    } else if (subSlug === 'homologation') {
+      setActiveCategory('oem');
+      setActiveModal('homologation');
+    } else if (subSlug === 'vltd-maker') {
+      setActiveCategory('testing');
+      setActiveModal('vltd-management');
+    } else if (subSlug === 'sld-maker') {
+      setActiveCategory('testing');
+      setActiveModal('sld-register');
+    } else if (subSlug === 'cng-maker') {
+      setActiveCategory('testing');
+      setActiveModal('retrofit-approval');
+    }
+  }, [subSlug]);
 
   // Form States for interactive modals
   // 1. Dealer Auth

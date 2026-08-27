@@ -483,5 +483,334 @@ export const servicesData: ServiceItem[] = [
     tags: ['fancy number', 'vip number', 'choice number', '0001 number'],
     onlineAvailable: true,
     iconName: 'Sparkles'
+  },
+  {
+    id: 'aitp-service',
+    category: 'permits',
+    categoryLabel: 'Permits & Transport',
+    categoryLabelHi: 'परमिट एवं परिवहन',
+    title: 'All India Tourist Permit (AITP)',
+    titleHi: 'अखिल भारतीय पर्यटक परमिट (AITP)',
+    slug: 'all-india-tourist-permit',
+    shortDesc: 'Apply for and download All India Tourist Permit (AITP) and authorization online for seamless interstate tourist passenger vehicle operation.',
+    shortDescHi: 'अखिल भारतीय पर्यटक परमिट (AITP) और प्राधिकरण के लिए ऑनलाइन आवेदन करें तथा डाउनलोड करें।',
+    fullDesc: 'The All India Tourist Vehicles (Permit) Rules provide an online mechanism for tourist vehicle operators to obtain all-India tourist authorizations without physically visiting state border checkpoints. Authorization is generated electronically upon payment of consolidated tourist vehicle permit fees.',
+    fullDescHi: 'अखिल भारतीय पर्यटक वाहन नियम के तहत पर्यटक वाहन संचालकों हेतु बिना किसी राज्य सीमा पर रुके अखिल भारतीय परमिट प्राधिकरण ऑनलाइन जारी किया जाता है।',
+    eligibility: [
+      'Vehicle must be registered as a Tourist Vehicle (Motor Cab, Maxi Cab, or Tourist Bus)',
+      'Vehicle must possess a valid Certificate of Fitness and valid PUCC',
+      'Vehicle must be equipped with compliant AIS-140 Vehicle Location Tracking Device (VLTD) and panic buttons'
+    ],
+    documents: [
+      { name: 'Vehicle Registration Certificate (RC)', description: 'Valid tourist class RC', mandatory: true },
+      { name: 'Certificate of Fitness', description: 'Valid fitness certificate from authorized ATS/RTO', mandatory: true },
+      { name: 'Valid Insurance & PUCC', description: 'Comprehensive commercial insurance and pollution certificate', mandatory: true },
+      { name: 'AIS-140 VLTD Installation Certificate', description: 'Certified VLTD fitment report', mandatory: true }
+    ],
+    steps: [
+      { stepNumber: 1, title: 'Vehicle Authentication', description: 'Enter registration number and chassis last 5 digits' },
+      { stepNumber: 2, title: 'Select Permit Duration', description: 'Choose 1 Year or 3 Months permit authorization' },
+      { stepNumber: 3, title: 'Fee Calculation & Payment', description: 'Pay statutory composite permit fee online via Bharatkosh / Parivahan' },
+      { stepNumber: 4, title: 'Instant Download', description: 'Download QR-coded Form 2 All India Tourist Permit' }
+    ],
+    fees: [
+      { label: 'Tourist Motor Cab (< 5 seater, Annual)', amount: 15000 },
+      { label: 'Tourist Maxi Cab (6-9 seater, Annual)', amount: 25000 },
+      { label: 'Tourist Bus (10+ seater, Annual)', amount: 75000 }
+    ],
+    estimatedDays: 'Instant Online Generation',
+    tags: ['tourist permit', 'all india tourist permit', 'aitp', 'commercial bus', 'tourist cab', 'interstate permit'],
+    popular: true,
+    onlineAvailable: true,
+    iconName: 'Truck'
+  },
+  {
+    id: 'permit-related',
+    category: 'permits',
+    categoryLabel: 'Permits & Transport',
+    categoryLabelHi: 'परमिट एवं परिवहन',
+    title: 'Permit Related Services',
+    titleHi: 'परमिट संबंधित सेवाएं',
+    slug: 'permit-related-services',
+    shortDesc: 'Apply for Stage Carriage, Contract Carriage, Goods, Temporary, and Special Permits issuance and renewal.',
+    shortDescHi: 'स्टेज कैरिज, कॉन्ट्रैक्ट कैरिज, माल, अस्थायी एवं विशेष परमिट जारी करने और नवीनीकरण की सेवाएं।',
+    fullDesc: 'Unified gateway for transport and commercial fleet owners to apply for Fresh Permits, Permit Renewal, Transfer of Permit, Temporary / Special Permits, and Permit Surrender under State Motor Vehicle Rules.',
+    fullDescHi: 'वाणिज्यिक वाहनों हेतु फ्रेश परमिट, परमिट नवीनीकरण, परमिट ट्रांसफर और अस्थायी परमिट के लिए एकीकृत डिजिटल पोर्टल।',
+    eligibility: [
+      'Commercial transport vehicle registered in the respective state jurisdiction',
+      'Clearance of all pending tax dues and challans'
+    ],
+    documents: [
+      { name: 'Registration Certificate (RC)', description: 'Commercial vehicle RC', mandatory: true },
+      { name: 'Fitness & Tax Clearance', description: 'Proof of up-to-date road tax and fitness', mandatory: true }
+    ],
+    steps: [
+      { stepNumber: 1, title: 'Select Jurisdiction & Permit Type', description: 'Choose state, RTO, and required permit category' },
+      { stepNumber: 2, title: 'Route Details', description: 'Enter operating route or area of operation' },
+      { stepNumber: 3, title: 'Document Upload & Fee', description: 'Upload vehicle credentials and pay statutory fee' },
+      { stepNumber: 4, title: 'RTO Verification & Issue', description: 'RTO approval and digital permit issuance' }
+    ],
+    fees: [
+      { label: 'Permit Application Fee', amount: 1000 },
+      { label: 'Permit Grant Fee (Varies by class)', amount: 2500 }
+    ],
+    estimatedDays: '3–7 Working Days',
+    tags: ['permit related services', 'permit', 'stage carriage', 'contract carriage', 'temporary permit', 'special permit'],
+    onlineAvailable: true,
+    iconName: 'FileCheck'
+  },
+  {
+    id: 'driving-licence-portal',
+    category: 'driving-licence',
+    categoryLabel: 'Driving Licence',
+    categoryLabelHi: 'ड्राइविंग लाइसेंस',
+    title: 'Driving Licence Related Services',
+    titleHi: 'ड्राइविंग लाइसेंस संबंधित सेवाएं',
+    slug: 'driving-licence-services',
+    shortDesc: 'Unified contactless hub for DL Renewal, Learner Licence, Permanent DL, Duplicate DL, and International Driving Permit.',
+    shortDescHi: 'ड्राइविंग लाइसेंस नवीनीकरण, नया लर्नर लाइसेंस, डुप्लीकेट एवं आईडीपी हेतु एकीकृत पोर्टल।',
+    fullDesc: 'Access all Sarathi 4.0 citizen services including application submission, photo/signature upload, driving test slot booking, medical certificate submission, and live status tracking.',
+    fullDescHi: 'सारथी 4.0 की सभी नागरिक सेवाओं तक पहुंच, जिसमें आवेदन, स्लॉट बुकिंग, दस्तावेज अपलोड और लाइव ट्रैकिंग शामिल है।',
+    eligibility: ['Indian citizens meeting minimum age criteria under MV Act'],
+    documents: [
+      { name: 'Proof of Age & Address', description: 'Aadhaar / Passport / Voter ID', mandatory: true },
+      { name: 'Medical Certificate (Form 1A)', description: 'Required for commercial DL or age 40+', mandatory: false }
+    ],
+    steps: [
+      { stepNumber: 1, title: 'Select DL Service', description: 'Choose renewal, new LL, replacement, or endorsement' },
+      { stepNumber: 2, title: 'Aadhaar Authentication', description: 'Faceless e-KYC validation' },
+      { stepNumber: 3, title: 'Upload & Pay', description: 'Upload credentials and pay government fee' },
+      { stepNumber: 4, title: 'Issue / Dispatch', description: 'Instant digital DL on DigiLocker / Smart card speed post' }
+    ],
+    fees: [{ label: 'Statutory Service Schedule', amount: 400 }],
+    estimatedDays: 'Instant (LL) / 7–10 Days (DL)',
+    tags: ['driving licence related services', 'dl', 'sarathi', 'renew dl', 'learner licence'],
+    popular: true,
+    onlineAvailable: true,
+    iconName: 'CreditCard'
+  },
+  {
+    id: 'vehicle-related-portal',
+    category: 'vehicle',
+    categoryLabel: 'Vehicle Services',
+    categoryLabelHi: 'वाहन सेवाएं',
+    title: 'Vehicle Related Services',
+    titleHi: 'वाहन संबंधित सेवाएं',
+    slug: 'vehicle-related-services',
+    shortDesc: 'Complete online workflow for Vehicle Ownership Transfer, Registration Renewal, Duplicate RC, NOC, and Hypothecation.',
+    shortDescHi: 'वाहन स्वामित्व हस्तांतरण, आरसी नवीनीकरण, डुप्लीकेट आरसी, एनओसी और हाइपोथिकेशन समाप्ति।',
+    fullDesc: 'VAHAN 4.0 digital portal enabling contactless processing of vehicle registration lifecycle services with Aadhaar buyer-seller OTP validation and home delivery of smart cards.',
+    fullDescHi: 'वाहन 4.0 डिजिटल पोर्टल जिसके माध्यम से वाहन पंजीकरण से जुड़ी सभी सेवाएं संपर्क रहित तरीके से पूर्ण की जा सकती हैं।',
+    eligibility: ['Registered vehicle owners on National VAHAN Registry'],
+    documents: [
+      { name: 'Registration Certificate (RC)', description: 'Current RC copy', mandatory: true },
+      { name: 'Valid Insurance & PUCC', description: 'Active policy and emission record', mandatory: true }
+    ],
+    steps: [
+      { stepNumber: 1, title: 'Vehicle Identification', description: 'Verify vehicle via Reg No. and Chassis No.' },
+      { stepNumber: 2, title: 'Service Selection', description: 'Select Transfer / Renewal / Duplicate / NOC' },
+      { stepNumber: 3, title: 'Aadhaar e-KYC', description: 'Authenticate buyer and seller' },
+      { stepNumber: 4, title: 'Fee Payment & Dispatch', description: 'Pay fees and track new RC smart card' }
+    ],
+    fees: [{ label: 'Statutory Service Fee', amount: 500 }],
+    estimatedDays: '5–14 Working Days',
+    tags: ['vehicle related services', 'vahan', 'rc transfer', 'ownership transfer', 'rc renewal', 'duplicate rc'],
+    popular: true,
+    onlineAvailable: true,
+    iconName: 'Car'
+  },
+  {
+    id: 'fitness-testing-service',
+    category: 'vehicle',
+    categoryLabel: 'Vehicle Services',
+    categoryLabelHi: 'वाहन सेवाएं',
+    title: 'Vehicle Fitness Testing',
+    titleHi: 'वाहन फिटनेस परीक्षण (ATS)',
+    slug: 'vehicle-fitness-testing',
+    shortDesc: 'Automated test appointment booking, fitness certificate grant, and roadworthiness compliance renewal.',
+    shortDescHi: 'स्वचालित परीक्षण स्टेशन (ATS) स्लॉट बुकिंग और फिटनेस प्रमाण पत्र नवीनीकरण।',
+    fullDesc: 'Schedule vehicle inspection at Automated Testing Stations (ATS) or jurisdictional RTO test facilities. Mandatory for all commercial transport vehicles annually/biennially and non-transport vehicles after 15 years.',
+    fullDescHi: 'स्वचालित परीक्षण स्टेशनों पर वाहन निरीक्षण स्लॉट बुक करें और फिटनेस प्रमाण पत्र प्राप्त करें।',
+    eligibility: ['All transport vehicles and private vehicles completed 15 years'],
+    documents: [
+      { name: 'Vehicle Registration Certificate', description: 'Original RC', mandatory: true },
+      { name: 'Tax Clearance & PUCC', description: 'Proof of all road taxes paid and valid PUCC', mandatory: true },
+      { name: 'Speed Governor & VLTD Fitment', description: 'Calibration certificates (for transport class)', mandatory: true }
+    ],
+    steps: [
+      { stepNumber: 1, title: 'Slot Booking', description: 'Select nearest ATS / RTO inspection track and date' },
+      { stepNumber: 2, title: 'Pay Inspection Fee', description: 'Pay statutory fitness test and grant fees' },
+      { stepNumber: 3, title: 'Automated Vehicle Test', description: 'Brake, headlight, emission, suspension, and steering automated evaluation' },
+      { stepNumber: 4, title: 'Certificate Grant', description: 'Instant digital Form 38 Fitness Certificate generation' }
+    ],
+    fees: [
+      { label: 'Automated Fitness Test Fee', amount: 600 },
+      { label: 'Fitness Certificate Grant Fee', amount: 200 }
+    ],
+    estimatedDays: 'Same Day at ATS Center',
+    tags: ['fitness', 'vehicle fitness testing', 'fitness test', 'ats', 'fitness certificate', 'roadworthiness'],
+    onlineAvailable: true,
+    iconName: 'Gauge'
+  },
+  {
+    id: 'vehicle-recall-service',
+    category: 'vehicle',
+    categoryLabel: 'Vehicle Services',
+    categoryLabelHi: 'वाहन सेवाएं',
+    title: 'Vehicle Recall',
+    titleHi: 'वाहन रिकॉल पोर्टल (सुरक्षा दोष)',
+    slug: 'vehicle-recall',
+    shortDesc: 'National portal for reporting manufacturing safety defects and checking vehicle recall notices issued by OEMs.',
+    shortDescHi: 'निर्माताओं द्वारा जारी सुरक्षा रिकॉल नोटिस जांचें अथवा विनिर्माण सुरक्षा दोष रिपोर्ट करें।',
+    fullDesc: 'Under Section 110A of the Motor Vehicles Act, vehicle owners can check if their vehicle identification number (VIN) is subject to a manufacturer safety recall or report systemic safety defects for government investigation.',
+    fullDescHi: 'वाहन मालिक अपने वाहन का चेसिस नंबर दर्ज कर सुरक्षा रिकॉल नोटिस जांच सकते हैं अथवा वाहन सुरक्षा दोष रिपोर्ट कर सकते हैं।',
+    eligibility: ['Any motor vehicle owner in India'],
+    documents: [{ name: 'Registration Certificate (RC)', description: 'Chassis / VIN number', mandatory: true }],
+    steps: [
+      { stepNumber: 1, title: 'Enter Vehicle VIN / Chassis', description: 'Search central manufacturer defect database' },
+      { stepNumber: 2, title: 'Recall Status Lookup', description: 'View active recall campaigns, affected components, and rectification guidelines' },
+      { stepNumber: 3, title: 'Report Defect (Optional)', description: 'Submit structured report for unaddressed safety flaws' }
+    ],
+    fees: [{ label: 'Citizen Consumer Right', amount: 0 }],
+    estimatedDays: 'Instant Lookup',
+    tags: ['vehicle recall', 'recall', 'safety defect', 'oem recall', 'airbag defect'],
+    onlineAvailable: true,
+    iconName: 'AlertTriangle'
+  },
+  {
+    id: 'checkpost-tax-service',
+    category: 'compliance',
+    categoryLabel: 'Compliance & Payments',
+    categoryLabelHi: 'अनुपालन एवं भुगतान',
+    title: 'Checkpost Tax',
+    titleHi: 'चेकपोस्ट कर भुगतान (Border Tax)',
+    slug: 'checkpost-tax',
+    shortDesc: 'Pay border road tax and state entry tax online before entering a state boundary for commercial vehicles.',
+    shortDescHi: 'वाणिज्यिक वाहनों हेतु राज्य सीमा में प्रवेश से पूर्व ऑनलाइन चेकपोस्ट व सीमा कर का भुगतान करें।',
+    fullDesc: 'National Checkpost Tax Portal allows commercial vehicle operators (goods trucks, contract cabs, tourist buses) to calculate and remit state entry tax and passenger tax in advance, avoiding border congestion.',
+    fullDescHi: 'वाणिज्यिक वाहन चालकों हेतु राज्य सीमा कर का अग्रिम डिजिटल भुगतान पोर्टल।',
+    eligibility: ['Commercial transport vehicles operating on interstate routes'],
+    documents: [
+      { name: 'Vehicle Registration No.', description: 'Active VAHAN record', mandatory: true },
+      { name: 'Permit & Fitness Details', description: 'Valid commercial permit', mandatory: true }
+    ],
+    steps: [
+      { stepNumber: 1, title: 'Select Visiting State & Checkpost', description: 'Choose entry point and visiting duration' },
+      { stepNumber: 2, title: 'Automatic Tax Assessment', description: 'System computes tax based on seating / gross vehicle weight' },
+      { stepNumber: 3, title: 'Pay Online', description: 'Secure payment via NetBanking / UPI / Cards' },
+      { stepNumber: 4, title: 'Digital Receipt', description: 'Download QR-coded border tax clearance receipt' }
+    ],
+    fees: [{ label: 'State Computed Border Tax', amount: 500 }],
+    estimatedDays: 'Instant Online Receipt',
+    tags: ['checkpost tax', 'border tax', 'entry tax', 'checkpost', 'commercial vehicle tax'],
+    onlineAvailable: true,
+    iconName: 'CreditCard'
+  },
+  {
+    id: 'vahan-green-sewa-service',
+    category: 'special',
+    categoryLabel: 'Special & Digital Services',
+    categoryLabelHi: 'विशेष एवं डिजिटल सेवाएं',
+    title: 'Vahan Green Sewa',
+    titleHi: 'वाहन ग्रीन सेवा (स्वच्छ गतिशीलता)',
+    slug: 'vahan-green-sewa',
+    shortDesc: 'Dedicated digital platform for Electric Vehicle (EV), Hybrid incentives, green tax rebates, and state subsidy tracking.',
+    shortDescHi: 'इलेक्ट्रिक वाहन सब्सिडी, ग्रीन टैक्स छूट एवं स्वच्छ ऊर्जा गतिशीलता हेतु समर्पित डिजिटल मंच।',
+    fullDesc: 'Vahan Green Sewa integrates state EV policies, central FAME/EMPS incentives, road tax exemptions on zero-emission vehicles, and green registration plate allocations.',
+    fullDescHi: 'इलेक्ट्रिक एवं हाइब्रिड वाहनों के लिए सब्सिडी, टैक्स छूट एवं ग्रीन नंबर प्लेट जारी करने की एकीकृत सेवा।',
+    eligibility: ['Purchasers and owners of battery electric vehicles (BEV), strong hybrid, or alternate fuel vehicles'],
+    documents: [
+      { name: 'Vehicle Purchase Invoice', description: 'OEM authorized bill', mandatory: true },
+      { name: 'Bank Account Details', description: 'For direct DBT subsidy transfer', mandatory: true }
+    ],
+    steps: [
+      { stepNumber: 1, title: 'Vehicle Identification', description: 'Verify electric vehicle chassis and model approval' },
+      { stepNumber: 2, title: 'State Policy Mapping', description: 'Auto-calculate applicable state EV purchase subsidy and tax waiver' },
+      { stepNumber: 3, title: 'Submit DBT Claim', description: 'Direct beneficiary transfer processing' }
+    ],
+    fees: [{ label: 'Green Initiative (Subsidy Enabled)', amount: 0 }],
+    estimatedDays: 'Direct Processing',
+    tags: ['vahan green sewa', 'green sewa', 'green', 'ev subsidy', 'electric vehicle', 'green tax'],
+    onlineAvailable: true,
+    iconName: 'Zap'
+  },
+  {
+    id: 'ntr-service',
+    category: 'special',
+    categoryLabel: 'Special & Digital Services',
+    categoryLabelHi: 'विशेष एवं डिजिटल सेवाएं',
+    title: 'National Transport Repository',
+    titleHi: 'राष्ट्रीय परिवहन डेटा रिपॉजिटरी (NTR)',
+    slug: 'national-transport-repository',
+    shortDesc: 'Centralized repository of national vehicle registrations, driver licencing metrics, and open data APIs.',
+    shortDescHi: 'राष्ट्रीय वाहन एवं चालक डेटाबेस, सड़क सुरक्षा रुझान और ओपन डेटा एपीआई का केंद्रीय भंडार।',
+    fullDesc: 'MoRTH National Transport Data Lake and Open Repository provides researchers, academic institutions, and enterprise developers access to anonymized national mobility datasets, vehicle population trends, and fuel transition analytics.',
+    fullDescHi: 'सड़क परिवहन एवं राजमार्ग मंत्रालय का राष्ट्रीय ओपन डेटा भंडार एवं विश्लेषिकी पोर्टल।',
+    eligibility: ['Open public access for statistical dashboards; API registration for developers'],
+    documents: [{ name: 'Organization / Developer Credentials', description: 'Required for API access token', mandatory: false }],
+    steps: [
+      { stepNumber: 1, title: 'Explore Open Datasets', description: 'Browse national transport indicators and metrics' },
+      { stepNumber: 2, title: 'Select Data Category', description: 'Vehicle registrations, licence issuance, safety statistics' },
+      { stepNumber: 3, title: 'Export / API Access', description: 'Download open CSV/JSON or subscribe to public APIs' }
+    ],
+    fees: [{ label: 'Public Open Data', amount: 0 }],
+    estimatedDays: 'Instant Access',
+    tags: ['national transport repository', 'repository', 'ntr', 'transport data', 'open data'],
+    onlineAvailable: true,
+    iconName: 'Building'
+  },
+  {
+    id: 'nr-services-public',
+    category: 'national-register',
+    categoryLabel: 'National Register',
+    categoryLabelHi: 'राष्ट्रीय रजिस्टर',
+    title: 'NR Services',
+    titleHi: 'राष्ट्रीय रजिस्टर सार्वजनिक सेवाएं (NR Services)',
+    slug: 'nr-services',
+    shortDesc: 'Public citizen query interface to verify driving licence genuineness and vehicle registration status across India.',
+    shortDescHi: 'ड्राइविंग लाइसेंस और वाहन पंजीकरण की राष्ट्रीय स्तर पर प्रामाणिकता एवं वैधता जांचने की सार्वजनिक सेवा।',
+    fullDesc: 'Access the National Register (NR) database uniting all State Transport Departments. Check all-India validity of licences and registration certificates.',
+    fullDescHi: 'अखिल भारतीय स्तर पर ड्राइविंग लाइसेंस एवं वाहन आरसी की प्रामाणिकता जांचने हेतु केंद्रीय राष्ट्रीय रजिस्टर सेवा।',
+    eligibility: ['Open public citizen inquiry'],
+    documents: [{ name: 'DL Number or Vehicle Registration Number', description: 'Identifier to query', mandatory: true }],
+    steps: [
+      { stepNumber: 1, title: 'Select Search Type', description: 'Driving Licence / Vehicle RC' },
+      { stepNumber: 2, title: 'Enter Number & Captcha', description: 'Provide registered number' },
+      { stepNumber: 3, title: 'Instant Verification', description: 'View genuine issuance record and validity status' }
+    ],
+    fees: [{ label: 'Public Query', amount: 0 }],
+    estimatedDays: 'Instant Query',
+    tags: ['nr services', 'nr', 'national register', 'national registry search', 'dl verification', 'rc verification'],
+    onlineAvailable: true,
+    iconName: 'Search'
+  },
+  {
+    id: 'paid-nr-services-bulk',
+    category: 'national-register',
+    categoryLabel: 'National Register',
+    categoryLabelHi: 'राष्ट्रीय रजिस्टर',
+    title: 'Paid NR Services',
+    titleHi: 'सशुल्क राष्ट्रीय रजिस्टर सेवाएं (Bulk Enterprise NR)',
+    slug: 'paid-nr-services',
+    shortDesc: 'Commercial high-volume API and web portal for Banks, NBFCs, Insurance Providers, and Law Enforcement agencies.',
+    shortDescHi: 'बैंकों, बीमा कंपनियों एवं वित्तीय संस्थानों हेतु बड़े पैमाने पर डीएल/आरसी डेटा सत्यापन की सशुल्क व्यावसायिक एपीआई सेवा।',
+    fullDesc: 'Enterprise B2B gateway providing high-throughput verified vehicle and driver record verification APIs with SLA guarantees for banking loan verification, insurance underwriting, and background verification.',
+    fullDescHi: 'बैंकों और बीमा प्रदाताओं के लिए उच्च स्तरीय सुरक्षित थोक डीएल/आरसी सत्यापन एपीआई सेवा।',
+    eligibility: ['Registered commercial enterprises, financial institutions, and authorized government agencies'],
+    documents: [
+      { name: 'Corporate Registration & GSTIN', description: 'Company credentials', mandatory: true },
+      { name: 'Authorized Signatory Undertaking', description: 'Data protection and DPDP compliance commitment', mandatory: true }
+    ],
+    steps: [
+      { stepNumber: 1, title: 'Enterprise Onboarding', description: 'Register organization account and verify credentials' },
+      { stepNumber: 2, title: 'Select API Tier / Bulk Wallet', description: 'Choose query volume package' },
+      { stepNumber: 3, title: 'Integration & Live Queries', description: 'Access REST APIs or upload batch CSV files for verification' }
+    ],
+    fees: [{ label: 'Commercial Tier Pricing (Per query basis)', amount: 10 }],
+    estimatedDays: 'Sub-second API Execution',
+    tags: ['paid nr services', 'paid nr', 'commercial nr', 'bulk verification', 'enterprise nr', 'insurance nr api'],
+    onlineAvailable: true,
+    iconName: 'Building'
   }
 ];
+

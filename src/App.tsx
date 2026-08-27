@@ -129,8 +129,9 @@ export const App: React.FC = () => {
       return <AuthPage onLogin={(role: UserRole) => setUserRole(role)} onNavigate={navigate} language={language} />;
     }
 
-    if (currentRoute === '/business') {
-      return <BusinessPortalPage onNavigate={navigate} language={language} />;
+    if (currentRoute === '/business' || currentRoute.startsWith('/business/')) {
+      const subSlug = currentRoute.startsWith('/business/') ? currentRoute.replace('/business/', '') : undefined;
+      return <BusinessPortalPage subSlug={subSlug} onNavigate={navigate} language={language} />;
     }
 
     if (currentRoute === '/staff') {

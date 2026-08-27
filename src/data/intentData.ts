@@ -98,15 +98,33 @@ export const citizenTaskIntents: CitizenTaskIntent[] = [
 ];
 
 export const searchIntentKeywords = [
-  { queries: ['renew dl', 'renew driving licence', 'dl renewal', 'licence expire', 'driving license renew', 'renewal'], slug: 'renew-driving-licence', title: 'Renew Driving Licence' },
-  { queries: ['transfer vehicle', 'car ownership transfer', 'sell car', 'rc transfer', 'buyer seller transfer', 'ownership'], slug: 'transfer-vehicle-ownership', title: 'Transfer Vehicle Ownership' },
+  { queries: ['renew dl', 'renew driving licence', 'dl renewal', 'licence expire', 'driving license renew', 'renewal', 'driving licence related services'], slug: 'renew-driving-licence', title: 'Renew Driving Licence' },
+  { queries: ['transfer vehicle', 'car ownership transfer', 'sell car', 'rc transfer', 'buyer seller transfer', 'ownership', 'vehicle related services'], slug: 'transfer-vehicle-ownership', title: 'Transfer Vehicle Ownership' },
   { queries: ['challan', 'echallan', 'traffic fine', 'speeding fine', 'pay challan', 'pending challan'], slug: 'echallan', title: 'eChallan Search & Payment' },
   { queries: ['vehicle details', 'know your vehicle', 'rc details', 'car info', 'insurance check', 'owner details'], slug: 'know-your-vehicle', title: 'Know Your Vehicle' },
   { queries: ['learner licence', 'll apply', 'learn driving', 'learning test', 'theory test'], slug: 'learners-licence', title: "Apply for Learner's Licence" },
-  { queries: ['scrap car', 'scrapping', 'rvsf', 'old vehicle scrap', 'vehicle scrappage policy', 'tax rebate'], slug: 'vehicle-scrapping', title: 'Vehicle Scrapping Portal' },
+  { queries: ['scrap car', 'scrap', 'scrapping', 'rvsf', 'old vehicle scrap', 'vehicle scrappage policy', 'tax rebate', 'vehicle scrapping'], slug: 'vehicle-scrapping', title: 'Vehicle Scrapping Portal' },
   { queries: ['duplicate rc', 'lost rc', 'lost registration', 'rc replacement'], slug: 'duplicate-rc', title: 'Duplicate Registration Certificate' },
   { queries: ['noc', 'state transfer', 'form 28', 'vehicle noc', 'rto noc'], slug: 'no-objection-certificate', title: 'No Objection Certificate (NOC)' },
-  { queries: ['pucc', 'puc', 'pollution certificate', 'emission status', 'puc validity'], slug: 'puc-certificate', title: 'PUC Certificate & Status' },
+  { queries: ['pucc', 'puc', 'pollution certificate', 'emission status', 'puc validity', 'pollution'], slug: 'puc-certificate', title: 'PUC Certificate & Status' },
   { queries: ['track', 'application status', 'check status', 'track dl', 'track rc'], slug: 'track', title: 'Track Application Status' },
-  { queries: ['rto', 'find rto', 'rto address', 'rto office locator', 'rto phone'], slug: 'rto-locator', title: 'RTO Office Locator' }
+  { queries: ['rto', 'find rto', 'rto address', 'rto office locator', 'rto phone'], slug: 'rto-locator', title: 'RTO Office Locator' },
+  { queries: ['fitness', 'vehicle fitness testing', 'fitness test', 'ats', 'fitness certificate'], slug: 'vehicle-fitness-testing', title: 'Vehicle Fitness Testing' },
+  { queries: ['tourist permit', 'all india tourist permit', 'aitp', 'tourist bus permit'], slug: 'all-india-tourist-permit', title: 'All India Tourist Permit' },
+  { queries: ['national permit', 'national permit authorization', 'goods permit', 'truck permit'], slug: 'national-permit', title: 'National Permit Authorization' },
+  { queries: ['permit', 'permit related services', 'stage carriage permit', 'temporary permit'], slug: 'permit-related-services', title: 'Permit Related Services' },
+  { queries: ['fancy number', 'fancy', 'fancy number booking', 'vip number', 'choice number', '0001'], slug: 'fancy-number-booking', title: 'Fancy Number Booking' },
+  { queries: ['green', 'vahan green sewa', 'green sewa', 'ev subsidy', 'electric vehicle'], slug: 'vahan-green-sewa', title: 'Vahan Green Sewa' },
+  { queries: ['checkpost', 'checkpost tax', 'border tax', 'entry tax'], slug: 'checkpost-tax', title: 'Checkpost Tax' },
+  { queries: ['recall', 'vehicle recall', 'safety defect', 'airbag recall'], slug: 'vehicle-recall', title: 'Vehicle Recall' },
+  { queries: ['nr', 'nr services', 'national register', 'national registry'], slug: 'nr-services', title: 'NR Services' },
+  { queries: ['paid nr', 'paid nr services', 'commercial nr', 'bulk verification'], slug: 'paid-nr-services', title: 'Paid NR Services' },
+  { queries: ['repository', 'national transport repository', 'ntr', 'transport data'], slug: 'national-transport-repository', title: 'National Transport Repository' },
+  { queries: ['vltd', 'vltd maker', 'vldt', 'ais-140', 'vehicle location tracking'], slug: 'business/vltd-maker', title: 'VLTD Maker' },
+  { queries: ['sld', 'sld maker', 'speed limiter', 'speed governor'], slug: 'business/sld-maker', title: 'SLD Maker' },
+  { queries: ['cng', 'cng maker', 'cng retrofitting', 'cng kit'], slug: 'business/cng-maker', title: 'CNG Maker' },
+  { queries: ['homologation', 'type approval', 'oem homologation'], slug: 'business/homologation', title: 'Homologation' },
+  { queries: ['dealer', 'dealer authorization', 'dealer authorization certificate', 'dac'], slug: 'business/dealer-authorization-certificate', title: 'Dealer Authorization Certificate' },
+  { queries: ['trade cert', 'trade certificate', 'dealer tc', 'trade plate'], slug: 'business/trade-certificate', title: 'Trade Certificate' }
 ];
+
